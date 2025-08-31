@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>התחברות | הבנק המרכזי</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            direction: rtl;
+            text-align: right;
+        }
+        .login-box {
+            width: 380px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 180px;
+        }
+        h2 {
+            font-size: 26px;
+            color: #004c99;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555555;
+            font-size: 14px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #c9c9c9;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+        .security-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        .security-info .lock-icon {
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 14px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #888;
+            background-color: #e2e4e8;
+            border-top: 1px solid #dcdcdc;
+            z-index: 1;
+        }
+        .footer a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="logo">
+            <img src="your-logo.png" alt="בנק מרכזי">
+        </div>
+        <h2>התחברות לחשבון</h2>
+        <form>
+            <div class="input-group">
+                <label for="username">שם משתמש</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">סיסמה</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">כניסה לחשבון</button>
+        </form>
+        <div class="security-info">
+            <span class="lock-icon">🔒</span>
+            <span>התחברות מאובטחת. מוגן באמצעות SSL.</span>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">תנאי שימוש</a> | <a href="#">מדיניות פרטיות</a> | <a href="#">אודות</a>
+    </div>
+</body>
+</html>
