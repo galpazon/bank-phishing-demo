@@ -23,7 +23,7 @@
         .login-box {
             width: 380px;
             padding: 40px;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98); /* יותר אטום */
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             position: relative;
@@ -35,6 +35,8 @@
         }
         .logo img {
             width: 180px;
+            max-width: 100%;
+            height: auto;
         }
         h2 {
             font-size: 26px;
@@ -101,16 +103,28 @@
             color: #888;
             text-decoration: none;
             margin: 0 10px;
+            font-weight: bold;
+        }
+        .message-box {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            display: none; /* נסתר בתחילה */
         }
     </style>
 </head>
 <body>
     <div class="login-box">
         <div class="logo">
-            <img src="logo.png" alt="בנק מרכזי">
+            <img src="https://i.ibb.co/b3j6Y1M/bank-logo.png" alt="בנק מרכזי">
         </div>
         <h2>התחברות לחשבון</h2>
-        <form>
+        <form id="loginForm">
             <div class="input-group">
                 <label for="username">שם משתמש</label>
                 <input type="text" id="username" name="username" required>
@@ -121,14 +135,48 @@
             </div>
             <button type="submit" class="login-button">כניסה לחשבון</button>
         </form>
+        <div class="message-box" id="responseMessage">
+            </div>
         <div class="security-info">
             <span class="lock-icon">🔒</span>
             <span>התחברות מאובטחת. מוגן באמצעות SSL.</span>
         </div>
     </div>
     <div class="footer">
-        <a href="#">תנאי שימוש</a> | <a href="#">מדיניות פרטיות</a> | <a href="#">אודות</a>
+        <a href="#" id="termsLink">תנאי שימוש</a> | <a href="#" id="privacyLink">מדיניות פרטיות</a> | <a href="#" id="aboutLink">אודות</a>
     </div>
-</body>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // מונע שליחה אמיתית של הטופס
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageBox = document.getElementById('responseMessage');
+
+            if (username === '' || password === '') {
+                messageBox.style.display = 'block';
+                messageBox.style.backgroundColor = '#fff3cd'; // צהוב
+                messageBox.style.color = '#856404';
+                messageBox.innerHTML = 'אנא הזן שם משתמש וסיסמה.';
+            } else {
+                messageBox.style.display = 'block';
+                messageBox.style.backgroundColor = '#d4edda'; // ירוק בהיר
+                messageBox.style.color = '#155724';
+                messageBox.innerHTML = 'בודק פרטי התחברות... (הדף הזה מזויף!)';
+                setTimeout(() => {
+                    window.location.href = 'warning-page.html'; // מפנה לדף האזהרה
+                }, 2000); // מפנה אחרי 2 שניות
+            }
+        });
+
+        // הפניית קישורי הפוטר לדף האזהרה
+        const footerLinks = ['termsLink', 'privacyLink', 'aboutLink'];
+        footerLinks.forEach(linkId => {
+            document.getElementById(linkId).addEventListener('click', function(event) {
+                event.preventDefault(); // מונע מעבר רגיל של הקישור
+                window.location.href = 'warning-page.html'; // מפנה לדף האזהרה
+            });
+        });
+    </script>
+</body>
 </html>
